@@ -1,65 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
+import Card from "./components/Card";
 
 const App = () => {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [fullname, setFullname] = useState("");
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    setFullname(`${firstname} ${lastname}`);
-    resetValue();
-  };
-
-  const resetValue = () => {
-    setFirstname("");
-    setLastname("");
-  };
-
   return (
-    <div className="p-5">
+    <div className="py-4">
       <div className="container">
+        <h1>All Posts</h1>
+        <hr />
         <div className="row">
           <div className="col-md-4">
-            <div className="card">
-              <div className="card-header">Learn React JS</div>
-              <div className="card-body">
-                <form onSubmit={submitHandler}>
-                  <div className="mb-3">
-                    <label htmlFor="firstName" className="form-label">
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      name="firstName"
-                      id="firstName"
-                      className="form-control"
-                      value={firstname}
-                      onChange={(e) => setFirstname(e.target.value)}
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="lastName" className="form-label">
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      id="lastName"
-                      className="form-control"
-                      value={lastname}
-                      onChange={(e) => setLastname(e.target.value)}
-                    />
-                  </div>
-                  <button type="submit" className="btn btn-primary">
-                    Submit
-                  </button>
-                </form>
-              </div>
-              <div className="card-footer">
-                Hello, my name is {fullname ? fullname : "...."}
-              </div>
-            </div>
+            <Card
+              imageUrl="https://placekitten.com/g/300/200"
+              title="First Post"
+              published="06 Feb, 2022"
+            />
+          </div>
+          <div className="col-md-4">
+            <Card
+              imageUrl="https://placekitten.com/300/200"
+              title="Second Post"
+              published="07 Feb, 2022"
+            />
+          </div>
+          <div className="col-md-4">
+            <Card
+              imageUrl="https://placekitten.com/300/200"
+              title="Third Post"
+              published="08 Feb, 2022"
+            />
           </div>
         </div>
       </div>
