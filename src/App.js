@@ -1,11 +1,9 @@
 import React from "react";
-import Navbar from "./components/Navbar";
 import Router from "./routes";
 
 const App = () => {
   return (
     <>
-      <Navbar />
       <Router />
     </>
   );
