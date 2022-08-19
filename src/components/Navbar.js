@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { UserProvider } from "../context/User";
+import AuthenticatedUser from "./AuthenticatedUser";
 
 const Navbar = (props) => {
   const activeClassName = "active";
@@ -50,6 +52,17 @@ const Navbar = (props) => {
                   to="/users"
                 >
                   Users
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className={`nav-link ${({ isActive }) =>
+                    isActive ? activeClassName : undefined}}`}
+                  to="/"
+                >
+                  <UserProvider>
+                    <AuthenticatedUser />
+                  </UserProvider>
                 </NavLink>
               </li>
             </ul>
