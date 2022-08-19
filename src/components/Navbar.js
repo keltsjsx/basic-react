@@ -43,15 +43,15 @@ const Navbar = (props) => {
                   About
                 </NavLink>
               </li>
-              {/* <li className="nav-item">
-              <NavLink
-                className={`nav-link ${({ isActive }) =>
-                  isActive ? activeClassName : undefined}}`}
-                to="/about"
-              >
-                About
-              </NavLink>
-            </li> */}
+              <li className="nav-item">
+                <NavLink
+                  className={`nav-link ${({ isActive }) =>
+                    isActive ? activeClassName : undefined}}`}
+                  to="/users"
+                >
+                  Users
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>

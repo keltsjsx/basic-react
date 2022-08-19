@@ -4,6 +4,9 @@ import Home from "../views/Home";
 import About from "../views/About";
 import NotFound from "../views/errors/NotFound";
 import Navbar from "../components/Navbar";
+import Login from "../views/auth/Login";
+import UserIndex from "../views/users/Index";
+import UserShow from "../views/users/Show";
 
 const Router = () => {
   return (
@@ -26,6 +29,24 @@ const Router = () => {
             </Navbar>
           }
         ></Route>
+        <Route
+          exact
+          path="users"
+          element={
+            <Navbar>
+              <UserIndex />
+            </Navbar>
+          }
+        ></Route>
+        <Route
+          path="users/:id"
+          element={
+            <Navbar>
+              <UserShow />
+            </Navbar>
+          }
+        ></Route>
+        <Route path="login" element={<Login />} />
       </Routes>
     </>
   );
