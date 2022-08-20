@@ -1,12 +1,15 @@
 import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
 
+// Ini inisialisasi UserContext nya
 const UserContext = createContext();
 
+// Ini Functional Component nya
 const UserProvider = (props) => {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // function ngambil users API
   const getUsers = async () => {
     setLoading(true);
     try {

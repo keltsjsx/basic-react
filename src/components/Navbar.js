@@ -1,14 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { UserProvider } from "../context/User";
+import { AuthUser, Theme } from "../store";
 import AuthenticatedUser from "./AuthenticatedUser";
+import { useRecoilValue } from "recoil";
 
 const Navbar = (props) => {
   const activeClassName = "active";
+  const { user } = useRecoilValue(AuthUser);
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-primary navbar-dark">
+      <nav className={`navbar navbar-expand-lg bg-dark navbar-dark`}>
         <div className="container">
           <NavLink className="navbar-brand" to="/">
             My Apps
@@ -24,7 +27,10 @@ const Navbar = (props) => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div
+            className="collapse navbar-collapse d-flex justify-content-between"
+            id="navbarNav"
+          >
             <ul className="navbar-nav">
               <li className="nav-item">
                 <NavLink
@@ -54,7 +60,7 @@ const Navbar = (props) => {
                   Users
                 </NavLink>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink
                   className={`nav-link ${({ isActive }) =>
                     isActive ? activeClassName : undefined}}`}
@@ -64,10 +70,22 @@ const Navbar = (props) => {
                     <AuthenticatedUser />
                   </UserProvider>
                 </NavLink>
+              </li> */}
+            </ul>
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <NavLink
+                  className={`nav-link ${({ isActive }) =>
+                    isActive ? activeClassName : undefined}}`}
+                  to="/"
+                >
+                  Hi, {user.username}
+                </NavLink>
               </li>
             </ul>
           </div>
         </div>
+        <div></div>
       </nav>
 
       <div className="py-3">{props.children}</div>
